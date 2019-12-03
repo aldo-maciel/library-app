@@ -1,0 +1,9 @@
+.book {
+    .cover {
+        transition: transform .2s;
+    }
+
+    .cover:hover {
+        transform: scale(2);
+    }
+}

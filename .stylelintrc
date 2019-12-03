@@ -1,0 +1,32 @@
+{
+    "rules": {
+        "value-no-vendor-prefix": true,
+        "property-no-vendor-prefix": true,
+        "shorthand-property-no-redundant-values": true,
+        "function-url-quotes": "always",
+        "length-zero-no-unit": true,
+        "block-no-empty": true,
+        "number-leading-zero": "never",
+        "color-no-invalid-hex": true,
+        "number-no-trailing-zeros": true,
+        "max-nesting-depth": 5,
+        "max-line-length": 120,
+        "string-quotes": "single",
+        "keyframe-declaration-no-important": true,
+        "declaration-no-important": true,
+        "declaration-colon-space-after": "always",
+        "indentation": 4,
+        "max-empty-lines": 1,
+        "color-hex-length": "long",
+        "at-rule-semicolon-newline-after": "always",
+        "at-rule-name-case": "lower",
+        "at-rule-name-space-after": "always",
+        "selector-type-case": "lower",
+        "property-case": "lower",
+        "value-keyword-case": "lower",
+        "unit-case": "lower",
+        "font-family-name-quotes": "always-where-recommended",
+        "color-hex-case": "lower",
+        "no-unknown-animations": true
+    }
+}

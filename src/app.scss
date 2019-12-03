@@ -1,0 +1,13 @@
+@import '~eva-icons/style/scss/eva-icons';
+@import '~font-awesome/scss/font-awesome';
+@import '~bootstrap';
+@import '~toastr/toastr';
+@import 'components/book/book';
+
+.main-body {
+    margin: .4rem;
+}
+
+.btn {
+    margin-left: .3rem;
+}
