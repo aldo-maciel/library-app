@@ -20,14 +20,14 @@ export class BookRegisterComponent extends React.Component<MatchProps, State> {
         }
     }
 
-    /**
-     * Create a new code and call the find prop to update the grid
-     * @param $event
-     */
-    protected async create($event: FormEvent) {
+    protected async save($event: FormEvent) {
         $event.preventDefault();
         try {
-            await this.service.create(this.state.record);
+            if (this._id) {
+                await this.service.update(this._id, this.state.record);
+            } else {
+                await this.service.create(this.state.record);
+            }
             onSuccess();
         } catch (error) {
             onError(error);

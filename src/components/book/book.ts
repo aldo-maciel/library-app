@@ -4,7 +4,6 @@ export interface Book {
     author: string;
     cover: {
         base64: string,
-        file: {},
         name: string,
         size: number,
         type: string

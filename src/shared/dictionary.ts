@@ -18,7 +18,7 @@ class Dictionary {
     BOOK_PLACEHOLDER_NAME: string = 'Nome do livro...';
     BOOK_PLACEHOLDER_AUTHOR: string = 'Nome d autor...';
     BOOK_PLACEHOLDER_DESCRIPTION: string = 'Descrição do livro...';
-    BOOK_PLACEHOLDER_COVER: string = 'Selecione a capa...';
+    BOOK_SELECT: string = 'Selecione';
     BOOK_DELETE_CONFIRM: string = 'Você deseja realmente deletar o livro {{ param }}?';
     BOOK_REGISTER_TITLE: string = 'Cadastrar';
     HEADER_TITLE: string = 'Biblioteca';

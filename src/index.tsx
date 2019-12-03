@@ -16,8 +16,8 @@ ReactDOM.render(
         <HeaderRender/>
         <Switch>
             <Route path="/" exact/>
-            <Route path="/livros/:id" component={ BookRegisterRender }/>
             <Route path="/livros/cadastrar" component={ BookRegisterRender }/>
+            <Route path="/livros/:id" component={ BookRegisterRender }/>
             <Route path="/livros" component={ BookRender }/>
         </Switch>
     </ BrowserRouter>, document.getElementById('root'));

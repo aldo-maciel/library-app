@@ -37,18 +37,20 @@ export class BookRender extends BookComponent {
                                                 <tr key={ row._id }>
                                                     <td className="text-center">{ row.name }</td>
                                                     <td className="text-center">{ row.author } </td>
-                                                    <td className="text-center">{ row.description }</td>
+                                                    <td className="text-center" title={ row.description }>
+                                                        { row.description.substr(0, 250) }
+                                                    </td>
                                                     <td className="text-center">
                                                         <div className="cover">
                                                             <img
                                                                 src={ row.cover.base64 }
                                                                 alt={ dictionary.BOOK_COVER }
                                                                 width={ 200 }
-                                                                height={ 100 }/>
+                                                                height={ 50 }/>
                                                         </div>
                                                     </td>
                                                     <td className="text-center">{
-                                                        BookColumnCreator.getActionsIcons(row,  this.removeBook.bind(this))
+                                                        BookColumnCreator.getActionsIcons(row, this.removeBook.bind(this))
                                                     }</td>
                                                 </tr>
                                             );

@@ -11,3 +11,14 @@
 .btn {
     margin-left: .3rem;
 }
+
+.table tr td {
+    vertical-align: middle;
+}
+
+.wrap-column {
+    max-width: 50rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

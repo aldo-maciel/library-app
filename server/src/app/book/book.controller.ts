@@ -44,8 +44,9 @@ export class BookController {
     public async update(req: Request, res: Response) {
         try {
             const { id } = req.params;
-            const { status } = req.body;
-            await BookController.service.update(id, status);
+            const { author, cover, name, description } = req.body;
+
+            await BookController.service.update(id, { author, cover, name, description });
 
             res.json({ success: true });
         } catch (error) {

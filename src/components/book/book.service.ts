@@ -50,4 +50,13 @@ export class BookService {
     create(record: Book): Promise<AxiosResponse<{ success: boolean }>> {
         return axios.post(BookService.URL, record);
     }
+
+    /**
+     * Call server to update a record
+     * @param id
+     * @param record
+     */
+    update(id: string, record: Book): Promise<AxiosResponse<{ success: boolean }>> {
+        return axios.put(`${ BookService.URL }/${ id }`, record);
+    }
 }
