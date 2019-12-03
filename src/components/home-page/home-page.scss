@@ -1,0 +1,25 @@
+.home-page {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+
+    &-card {
+        $size: .5rem;
+        box-shadow: .1rem .5rem .3rem lightgray;
+        border-radius: $size;
+        margin: $size;
+        width: calc(20% - #{ $size * 2 }); // * 2 = (margin + padding)
+        padding: $size;
+
+        img {
+            height: 15rem;
+            width: 100%;
+        }
+
+        &-footer {
+            text-align: center;
+
+        }
+    }
+}

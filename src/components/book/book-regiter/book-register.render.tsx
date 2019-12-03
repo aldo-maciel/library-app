@@ -45,14 +45,13 @@ export class BookRegisterRender extends BookRegisterComponent {
                                            onChange={ $event => this.onChangeDescription($event.target.value) }/>
                                 </div>
                                 <div className="col-lg-6 offset-lg-3 col-sm-12 offset-sm-0 form-group">
-                                    <label htmlFor="bookDescription" className=" col-form-label">{ dictionary.BOOK_COVER }(5mb)</label>
+                                    <label htmlFor="bookDescription" className=" col-form-label">{ dictionary.BOOK_COVER }(Max. 3mb)</label>
                                     <div>
-                                        <img
-                                            src={ (this.state.record.cover || {}).base64 || '' }
-                                            alt={ dictionary.BOOK_COVER }
-                                            width={ 300 }
-                                            height={ 200 }/>
-                                        <FileInputComponent labelText={ '' } callbackFunction={ this.getFiles.bind(this) } accept="image/*"
+                                        <img src={ (this.state.record.cover || {}).base64 || '' }
+                                             alt={ dictionary.BOOK_COVER }
+                                             width={ 300 }
+                                             height={ 200 }/>
+                                        <FileInputComponent labelText={ '' } callbackFunction={ this.getFiles.bind(this) } accept="image/png"
                                                             multiple={ false } imagePreview={ false }
                                                             buttonComponent={
                                                                 <button type="button"
