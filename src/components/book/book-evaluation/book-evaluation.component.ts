@@ -6,7 +6,7 @@ import { Book } from '../book';
 
 export class BookEvaluationComponent extends React.Component<Props, State> {
     private service: BookService = new BookService();
-    public state: State = { record: {} as Book, redirect: false };
+    public state: State = { record: {} as Book, redirect: false, showModal: false };
 
     protected async save($event: FormEvent) {
         $event.preventDefault();
@@ -18,5 +18,13 @@ export class BookEvaluationComponent extends React.Component<Props, State> {
         } finally {
             this.setState({ redirect: true });
         }
+    }
+
+    close() {
+        this.setState({ showModal: false });
+    }
+
+    open() {
+        this.setState({ showModal: true });
     }
 }

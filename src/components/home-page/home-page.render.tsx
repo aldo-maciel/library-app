@@ -1,6 +1,7 @@
 import { HomePageComponent } from './home-page.component';
 import React from 'react';
 import { dictionary } from '../../shared/dictionary';
+import { BookEvaluationRender } from '../book/book-evaluation/book-evaluation.render';
 
 export class HomePageRender extends HomePageComponent {
 
@@ -12,9 +13,8 @@ export class HomePageRender extends HomePageComponent {
                         {
                             this.state.rows.map(book => {
                                 return (
-                                    <div className="col-md-12 col-lg-6 col-xl-4 col-sm-12" key={ book._id } data-target="#exampleModal"
-                                         data-toggle="modal">
-                                        <div className="home-page-card bg-dark">
+                                    <div className="col-md-12 col-lg-6 col-xl-4 col-sm-12" key={ book._id }>
+                                        <BookEvaluationRender book={ book } className="home-page-card bg-dark">
                                             <div className="home-page-card-img">
                                                 <img className="home-page-card-cover" src={ book.cover.base64 } alt={ dictionary.BOOK_COVER }/>
                                                 <div className="home-page-card-author">
@@ -29,7 +29,7 @@ export class HomePageRender extends HomePageComponent {
                                                     { book.description }
                                                 </div>
                                             </div>
-                                        </div>
+                                        </BookEvaluationRender>
                                     </div>
                                 );
                             })
