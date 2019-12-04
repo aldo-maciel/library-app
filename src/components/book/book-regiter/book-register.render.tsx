@@ -21,7 +21,7 @@ export class BookRegisterRender extends BookRegisterComponent {
                 <div className="container-fluid">
                     <form onSubmit={ $event => this.save($event) }
                           onReset={ () => debounce(() => this.setState({ redirect: true }), 500)() }>
-                        <div className="card">
+                        <div className="card bg-dark">
                             <div className="card-header">
                                 <h4>{ dictionary.BOOK_REGISTER_TITLE }</h4>
                             </div>
@@ -35,38 +35,38 @@ export class BookRegisterRender extends BookRegisterComponent {
                                 <div className="col-lg-6 offset-lg-3 col-sm-12 offset-sm-0 form-group">
                                     <label htmlFor="bookDescription" className=" col-form-label">{ dictionary.BOOK_AUTHOR }</label>
                                     <input type="text" className="form-control" id="bookDescription"
-                                           placeholder={ dictionary.BOOK_PLACEHOLDER_AUTHOR } maxLength={ 250 }
+                                           placeholder={ dictionary.BOOK_PLACEHOLDER_AUTHOR } maxLength={ 40 }
                                            value={ this.state.record.author || '' } onChange={ $event => this.onChangeAuthor($event.target.value) }/>
                                 </div>
                                 <div className="col-lg-6 offset-lg-3 col-sm-12 offset-sm-0 form-group">
                                     <label htmlFor="bookDescription" className=" col-form-label">{ dictionary.BOOK_DESCRIPTION }</label>
-                                    <input type="text" className="form-control" id="bookDescription" maxLength={ 4000 }
-                                           placeholder={ dictionary.BOOK_PLACEHOLDER_DESCRIPTION } value={ this.state.record.description || '' }
-                                           onChange={ $event => this.onChangeDescription($event.target.value) }/>
+                                    <textarea className="form-control" id="bookDescription" maxLength={ 4000 }
+                                              placeholder={ dictionary.BOOK_PLACEHOLDER_DESCRIPTION } value={ this.state.record.description || '' }
+                                              onChange={ $event => this.onChangeDescription($event.target.value) } rows={ 10 }/>
                                 </div>
                                 <div className="col-lg-6 offset-lg-3 col-sm-12 offset-sm-0 form-group">
-                                    <label htmlFor="bookDescription" className=" col-form-label">{ dictionary.BOOK_COVER }(Max. 3mb)</label>
-                                    <div>
-                                        <img src={ (this.state.record.cover || {}).base64 || '' }
-                                             alt={ dictionary.BOOK_COVER }
-                                             width={ 300 }
-                                             height={ 200 }/>
-                                        <FileInputComponent labelText={ '' } callbackFunction={ this.getFiles.bind(this) } accept="image/png"
-                                                            multiple={ false } imagePreview={ false }
-                                                            buttonComponent={
-                                                                <button type="button"
-                                                                        className="btn btn-outline-primary">
-                                                                    { dictionary.BOOK_SELECT }
-                                                                </button>
-                                                            }/>
+                                    <label htmlFor="bookDescription" className=" col-form-label">
+                                        { dictionary.BOOK_COVER }<small>(Max. 3mb)</small>
+                                    </label>
+                                    <div className="card" hidden={ !this.state.record.cover }>
+                                        <img className="cover-preview" src={ (this.state.record.cover || {}).base64 || '' }
+                                             alt={ dictionary.BOOK_COVER }/>
                                     </div>
+                                    <FileInputComponent labelText={ '' } callbackFunction={ this.getFiles.bind(this) } accept="image/png"
+                                                        multiple={ false } imagePreview={ false }
+                                                        buttonComponent={
+                                                            <button type="button"
+                                                                    className="btn btn-primary">
+                                                                { dictionary.BOOK_SELECT }
+                                                            </button>
+                                                        }/>
                                 </div>
                                 <small className="text-danger">{ dictionary.MANDATORY }</small>
                             </div>
                             <div className="card-footer">
                                 <div className="pull-right">
-                                    <button className="btn btn-outline-success" type="submit">{ dictionary.SALVAR }</button>
-                                    <button className="btn btn-outline-dark" type="reset">{ dictionary.CANCEL }</button>
+                                    <button className="btn btn-success" type="submit">{ dictionary.SALVAR }</button>
+                                    <button className="btn btn-dark" type="reset">{ dictionary.CANCEL }</button>
                                 </div>
                             </div>
                         </div>

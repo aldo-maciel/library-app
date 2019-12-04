@@ -1,4 +1,6 @@
-@import "app";
+@import 'app';
+
+$background-color: #282c34;
 
 body {
     margin: 0;
@@ -7,6 +9,8 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: $white;
+    background-color: $background-color;
 }
 
 code {

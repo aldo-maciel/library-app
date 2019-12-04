@@ -1,25 +1,49 @@
+@import './../../shared/placeholder';
+
 .home-page {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    position: relative;
+    @extend .d-flex;
+    @extend .flex-wrap;
+    padding: 0 5rem;
 
     &-card {
-        $size: .5rem;
-        box-shadow: .1rem .5rem .3rem lightgray;
-        border-radius: $size;
-        margin: $size;
-        width: calc(20% - #{ $size * 2 }); // * 2 = (margin + padding)
-        padding: $size;
+        @extend .d-flex;
+        border-radius: .2rem;
+        box-shadow: rgba(60, 64, 67, .3) 0 .1rem .2rem 0, rgba(60, 64, 67, .15) 0 .1rem .3rem .1rem;
+        margin: .5rem 0;
+        height: 10rem;
+        padding: .7rem;
 
-        img {
-            height: 15rem;
-            width: 100%;
+        &:hover {
+
         }
 
-        &-footer {
-            text-align: center;
+        &-cover {
+            height: 85%;
+            width: 85%;
+        }
 
+        &-name {
+            @extend %text-ellipses;
+        }
+
+        &-author {
+            @extend %text-ellipses;
+        }
+
+        &-text {
+            overflow: hidden;
+            padding: .5rem;
+            width: 70%;
+        }
+
+        &-img {
+            width: 30%;
+            text-align: center;
+        }
+
+        &-description {
+            font-size: .8em;
+            padding: .3rem .3rem 0;
         }
     }
 }

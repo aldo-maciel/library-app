@@ -12,21 +12,21 @@ export class BookRender extends BookComponent {
         return (
             <div className="main-body book">
                 <div className="container-fluid">
-                    <div className="card">
+                    <div className="card bg-dark">
                         <div className="card-header">
                             <h3>{ dictionary.BOOK_TITLE }</h3>
                         </div>
                         <div className="card-body">
-                            <Link to="/livros/cadastrar">
-                                <em className="eva eva-plus-outline"/>{ dictionary.BOOK_ADD_NEW }
+                            <Link className="btn btn-success d-inline-flex align-items-center" to="/livros/cadastrar">
+                                <em className="eva eva-plus-outline eva-2x"/><span>{ dictionary.BOOK_ADD_NEW }</span>
                             </Link>
-                            <table className="table table-hover table-striped table-striped table-borderless">
+                            <table className="table table-hover table-striped table-striped table-borderless table-dark">
                                 <thead>
                                     <tr>
+                                        <th className="text-center">{ dictionary.BOOK_COVER }</th>
                                         <th className="text-center">{ dictionary.BOOK_NAME }</th>
                                         <th className="text-center">{ dictionary.BOOK_AUTHOR }</th>
                                         <th className="text-center">{ dictionary.BOOK_DESCRIPTION }</th>
-                                        <th className="text-center">{ dictionary.BOOK_COVER }</th>
                                         <th className="text-center">{ dictionary.BOOK_ACTIONS }</th>
                                     </tr>
                                 </thead>
@@ -35,18 +35,16 @@ export class BookRender extends BookComponent {
                                         this.state.rows.map(row => {
                                             return (
                                                 <tr key={ row._id }>
+                                                    <td className="text-center">
+                                                        <div className="cover">
+                                                            <img className="cover-img" src={ row.cover.base64 } alt={ dictionary.BOOK_COVER }/>
+                                                        </div>
+                                                    </td>
                                                     <td className="text-center">{ row.name }</td>
                                                     <td className="text-center">{ row.author } </td>
                                                     <td className="text-center" title={ row.description }>
-                                                        { row.description.substr(0, 250) }
-                                                    </td>
-                                                    <td className="text-center">
-                                                        <div className="cover">
-                                                            <img
-                                                                src={ row.cover.base64 }
-                                                                alt={ dictionary.BOOK_COVER }
-                                                                width={ 200 }
-                                                                height={ 50 }/>
+                                                        <div className="description">
+                                                            { row.description.substring(0, 250) }
                                                         </div>
                                                     </td>
                                                     <td className="text-center">{
