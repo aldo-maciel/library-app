@@ -21,6 +21,7 @@ class Dictionary {
     BOOK_SELECT: string = 'Selecione';
     BOOK_DELETE_CONFIRM: string = 'Você deseja realmente deletar o livro {{ param }}?';
     BOOK_REGISTER_TITLE: string = 'Cadastrar';
+    BOOK_EVALUATION_TITLE: string = 'Avaliação';
     HEADER_TITLE: string = 'Biblioteca';
     HEADER_EVALUATION: string = 'Avalições';
     HEADER_BOOKS: string = 'Livros';

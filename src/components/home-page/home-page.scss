@@ -11,10 +11,15 @@
         box-shadow: rgba(60, 64, 67, .3) 0 .1rem .2rem 0, rgba(60, 64, 67, .15) 0 .1rem .3rem .1rem;
         margin: .5rem 0;
         height: 10rem;
+        transition: transform .2s;
         padding: .7rem;
+        z-index: 1000;
 
         &:hover {
-
+            cursor: pointer;
+            transform: scale(1.1);
+            transform-origin: center center;
+            z-index: 1015;
         }
 
         &-cover {

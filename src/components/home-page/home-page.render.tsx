@@ -12,7 +12,8 @@ export class HomePageRender extends HomePageComponent {
                         {
                             this.state.rows.map(book => {
                                 return (
-                                    <div className="col-md-12 col-lg-6 col-xl-4 col-sm-12" key={ book._id }>
+                                    <div className="col-md-12 col-lg-6 col-xl-4 col-sm-12" key={ book._id } data-target="#exampleModal"
+                                         data-toggle="modal">
                                         <div className="home-page-card bg-dark">
                                             <div className="home-page-card-img">
                                                 <img className="home-page-card-cover" src={ book.cover.base64 } alt={ dictionary.BOOK_COVER }/>
