@@ -9,14 +9,16 @@ import 'moment/locale/pt-br';
 import { BookRender } from './components/book/book.render';
 import { BookRegisterRender } from './components/book/book-regiter/book-register.render';
 import { HomePageRender } from './components/home-page/home-page.render';
+import { LoginRender } from './components/login/login.render';
 
 moment.locale('pt-br');
 
 ReactDOM.render(
     <BrowserRouter>
-        <HeaderRender/>
+        <HeaderRender />
         <Switch>
-            <Route path="/" exact component={ HomePageRender }/>
+            <Route path="/" exact component={ LoginRender }/>
+            <Route path="/home" exact component={ HomePageRender }/>
             <Route path="/livros/cadastrar" component={ BookRegisterRender }/>
             <Route path="/livros/:id" component={ BookRegisterRender }/>
             <Route path="/livros" component={ BookRender }/>

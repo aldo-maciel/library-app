@@ -1,0 +1,30 @@
+@import './../../shared/variable';
+
+.login {
+    @extend .d-flex;
+    @extend .justify-content-center;
+
+    background: #bdc3c7; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100vh;
+    width: 100vw;
+
+    &-container {
+        @extend .align-items-center;
+        @extend .align-self-center;
+        @extend .d-flex;
+        @extend .justify-content-center;
+        background: $background-color;
+        box-shadow: rgba($background-color, .4) 0 .1rem .2rem 0, rgba($background-color, .15) 0 .1rem .3rem .1rem;;
+        border-radius: 40% 5%;
+        padding: 5rem;
+        margin: 0 3rem;
+
+        form {
+            @extend .align-items-center;
+            @extend .d-flex;
+            @extend .justify-content-center;
+        }
+    }
+}

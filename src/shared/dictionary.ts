@@ -9,6 +9,7 @@ class Dictionary {
     MANDATORY: string = 'Obrigatório: ( * )';
     DELETAR_REGISTRO: string = 'Deletar registro';
     EDITAR_REGISTRO: string = 'Editar registro';
+    // book
     BOOK_AUTHOR: string = 'Autor';
     BOOK_NAME: string = 'Nome';
     BOOK_DESCRIPTION: string = 'Descrição';
@@ -23,9 +24,11 @@ class Dictionary {
     BOOK_DELETE_CONFIRM: string = 'Você deseja realmente deletar o livro {{ param }}?';
     BOOK_REGISTER_TITLE: string = 'Cadastrar';
     BOOK_EVALUATION_TITLE: string = 'Avaliação';
+    // header
     HEADER_TITLE: string = 'Biblioteca';
     HEADER_EVALUATION: string = 'Avalições';
     HEADER_BOOKS: string = 'Livros';
+    // paginate
     PAGINATE_PRIMEIRA: string = 'Primeira';
     PAGINATE_ANTERIOR: string = 'Anterior';
     PAGINATE_PROXIMA: string = 'Próxima';
@@ -33,6 +36,12 @@ class Dictionary {
     PAGINATE_MOSTRANDO: string = 'Mostrando';
     PAGINATE_DE: string = 'de';
     PAGINATE_ATE: string = 'até';
+    // user
+    USER_LOGIN: string = 'Login';
+    USER_PASSWORD: string = 'Senha';
+    USER_LOGIN_PLACEHOLDER: string = 'Digite seu usuário...';
+    USER_LOGIN_BTN: string = 'Entrar';
+    USER_PASSWORD_PLACEHOLDER: string = 'Digite sua senha...';
     ERROR_MESSAGE: string = 'Ocorreu um erro na requisição!';
     ERROR_TITLE: string = 'Erro';
     SUCCESS_MESSAGE: string = 'Operação realizada com sucesso!';

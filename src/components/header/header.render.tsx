@@ -1,12 +1,13 @@
 import React from 'react';
 import { dictionary } from '../../shared/dictionary';
 import { Link } from 'react-router-dom';
+import { userService } from '../user/user.service';
 
 export class HeaderRender extends React.Component {
 
     render(): React.ReactElement {
         return (
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark" hidden={ !userService.isLogged() }>
                 <Link to="/" className="navbar-brand">{ dictionary.HEADER_TITLE }</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
                         aria-expanded="false" aria-label="Alterna navegação">

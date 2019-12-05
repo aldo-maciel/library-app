@@ -1,12 +1,11 @@
 import React from 'react';
 import { onError, onSuccess } from '../../../shared/toastr-util';
 import { Props, State } from './book-evaluation.type';
-import { Book } from '../book';
 import { BookEvaluationService } from './book-evaluation.service';
 
 export class BookEvaluationComponent extends React.Component<Props, State> {
     private service: BookEvaluationService = new BookEvaluationService();
-    public state: State = { record: {} as Book, redirect: false, showModal: false, rating: 0 };
+    public state: State = { showModal: false, rating: 0 };
 
     componentDidMount(): void {
         if (this.props.book.evaluation) {
@@ -22,8 +21,6 @@ export class BookEvaluationComponent extends React.Component<Props, State> {
             onSuccess();
         } catch (error) {
             onError(error);
-        } finally {
-            this.setState({ redirect: true });
         }
     }
 
