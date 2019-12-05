@@ -1,3 +1,5 @@
+import { BookEvaluation } from '../../../server/src/app/book/book-evaluation/book-evaluation';
+
 export interface Book {
     _id: string;
     name: string;
@@ -8,5 +10,6 @@ export interface Book {
         size: number,
         type: string
     };
-    description: string
+    description: string,
+    evaluation: BookEvaluation
 }

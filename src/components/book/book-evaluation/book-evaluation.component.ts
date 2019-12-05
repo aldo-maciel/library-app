@@ -1,17 +1,24 @@
-import React, { FormEvent } from 'react';
-import { BookService } from '../book.service';
+import React from 'react';
 import { onError, onSuccess } from '../../../shared/toastr-util';
 import { Props, State } from './book-evaluation.type';
 import { Book } from '../book';
+import { BookEvaluationService } from './book-evaluation.service';
 
 export class BookEvaluationComponent extends React.Component<Props, State> {
-    private service: BookService = new BookService();
-    public state: State = { record: {} as Book, redirect: false, showModal: false };
+    private service: BookEvaluationService = new BookEvaluationService();
+    public state: State = { record: {} as Book, redirect: false, showModal: false, rating: 0 };
 
-    protected async save($event: FormEvent) {
-        $event.preventDefault();
+    componentDidMount(): void {
+        if (this.props.book.evaluation) {
+            this.setState({
+                rating: this.props.book.evaluation.rating
+            });
+        }
+    }
+
+    protected async evaluate(newRating: number) {
         try {
-            await this.service.create(this.state.record);
+            await this.service.evaluate(this.props.book._id, newRating);
             onSuccess();
         } catch (error) {
             onError(error);
@@ -26,5 +33,10 @@ export class BookEvaluationComponent extends React.Component<Props, State> {
 
     open() {
         this.setState({ showModal: true });
+    }
+
+    changeRating(newRating: number) {
+        this.setState({ rating: newRating });
+        this.evaluate(newRating);
     }
 }

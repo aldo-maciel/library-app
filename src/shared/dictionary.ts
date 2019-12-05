@@ -5,6 +5,7 @@ class Dictionary {
     SIM: string = 'Sim';
     SALVAR: string = 'Salvar';
     CANCEL: string = 'Cancelar';
+    CLOSE: string = 'Fechar';
     MANDATORY: string = 'Obrigatório: ( * )';
     DELETAR_REGISTRO: string = 'Deletar registro';
     EDITAR_REGISTRO: string = 'Editar registro';

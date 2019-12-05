@@ -15,7 +15,6 @@ RUN npm run build
 
 # build view
 WORKDIR /opt/app/view
-ENV NODE_ENV=production
 COPY *.json /opt/app/view/
 RUN apk --no-cache add g++ gcc libgcc libstdc++ linux-headers make python
 RUN npm install --quiet node-gyp -g

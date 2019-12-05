@@ -16,11 +16,12 @@ export class BookService {
             .skip(parseInt(pagination.start))
             .limit(parseInt(pagination.step) || 10)
             .sort(pagination.sort || { createdAt: -1 })
-            .lean(true);
+            .lean(true)
+            .populate('evaluation');
 
         const count = await bookModel.countDocuments(filter);
 
-        logger.debug(count, data);
+        logger.debug(count);
 
         return { count, data };
     }

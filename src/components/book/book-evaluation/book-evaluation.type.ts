@@ -9,4 +9,5 @@ export type State = {
     record: Book,
     redirect: boolean,
     showModal: boolean
+    rating: number
 }

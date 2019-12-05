@@ -20,4 +20,11 @@ const schema = new Schema({
     versionKey: false
 });
 
+schema.virtual('evaluation', {
+    ref: ModelEnum.BOOK_EVALUATION,
+    localField: '_id',
+    foreignField: 'bookId',
+    justOne: true
+});
+
 export const bookModel = mongoose.model(ModelEnum.BOOK, schema);

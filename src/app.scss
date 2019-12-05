@@ -2,9 +2,10 @@
 @import '~font-awesome/scss/font-awesome';
 @import '~bootstrap';
 @import '~toastr/toastr';
+@import 'shared/placeholder';
 @import 'components/book/book';
 @import 'components/home-page/home-page';
-@import 'shared/placeholder';
+@import 'components/book/book-evaluation/book-evaluation';
 
 .main-body {
     margin: .4rem;
@@ -23,4 +24,9 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.modal-90w {
+    width: 90vw;
+    max-width: 90vw;
 }

@@ -1,3 +1,4 @@
 export enum ModelEnum {
-    BOOK = 'books'
+    BOOK = 'books',
+    BOOK_EVALUATION = 'booksEvaluation'
 }
