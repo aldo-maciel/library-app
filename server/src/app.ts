@@ -18,7 +18,7 @@ class App {
 
         this.app.use(bodyParser.json({ limit: properties.system.limit }));
         this.app.use(bodyParser.urlencoded({ extended: true, limit: properties.system.limit }));
-        this.app.use(express.static(process.cwd() + '/view'));
+        this.app.use(express.static('view'));
 
         await new MongoConfig().mongoSetup();
         new RoutesMiddleware().config(this.app);
