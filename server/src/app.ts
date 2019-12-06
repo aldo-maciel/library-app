@@ -4,7 +4,6 @@ import cors from 'cors';
 import { RoutesMiddleware } from './config/app.config';
 import { MongoConfig } from './config/mongo.config';
 import { properties } from './properties';
-import logger from './shared/logger.service';
 
 class App {
     public app: Application = express();
@@ -19,9 +18,7 @@ class App {
 
         this.app.use(bodyParser.json({ limit: properties.system.limit }));
         this.app.use(bodyParser.urlencoded({ extended: true, limit: properties.system.limit }));
-        logger.info('-----------------------------////////------------------------------- __dirname ' + __dirname);
-        logger.info('-----------------------------////////------------------------------- process.cwd() ' + process.cwd());
-        this.app.use(express.static(process.cwd() + '/view/build'));
+        this.app.use(express.static(process.cwd() + '/view'));
 
         await new MongoConfig().mongoSetup();
         new RoutesMiddleware().config(this.app);
