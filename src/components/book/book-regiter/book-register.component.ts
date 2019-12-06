@@ -3,13 +3,18 @@ import { BookService } from '../book.service';
 import { onError, onSuccess } from '../../../shared/toastr-util';
 import { MatchProps, State } from './book-register.type';
 import { Book } from '../book';
+import { userService } from '../../user/user.service';
 
 export class BookRegisterComponent extends React.Component<MatchProps, State> {
     private service: BookService = new BookService();
-    public state: State = { record: {} as Book, redirect: false };
+    public state: State = { record: {} as Book, redirect: false, redirectLogin: false };
     private _id: string = this.props.match.params.id;
 
     componentDidMount(): void {
+        if (!userService.isLogged() || !userService.getUser().admin) {
+            this.setState({ redirectLogin: true });
+            return;
+        }
         if (this._id) {
             this.service.findById(this._id)
                 .then(({ data }) => {

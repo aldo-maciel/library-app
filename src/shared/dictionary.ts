@@ -23,10 +23,9 @@ class Dictionary {
     BOOK_SELECT: string = 'Selecione';
     BOOK_DELETE_CONFIRM: string = 'Você deseja realmente deletar o livro {{ param }}?';
     BOOK_REGISTER_TITLE: string = 'Cadastrar';
-    BOOK_EVALUATION_TITLE: string = 'Avaliação';
+    BOOK_EVALUATION: string = 'Avaliações';
     // header
     HEADER_TITLE: string = 'Biblioteca';
-    HEADER_EVALUATION: string = 'Avalições';
     HEADER_BOOKS: string = 'Livros';
     // paginate
     PAGINATE_PRIMEIRA: string = 'Primeira';
@@ -38,10 +37,17 @@ class Dictionary {
     PAGINATE_ATE: string = 'até';
     // user
     USER_LOGIN: string = 'Login';
+    USER_NAME: string = 'Nome';
+    USER_ADMIN: string = 'Administrador';
+    USER_PLACEHOLDER_NAME: string = 'Digite o nome...';
+    USER_PLACEHOLDER_LOGIN: string = 'Digite o login...';
     USER_PASSWORD: string = 'Senha';
+    USER_CONFIRM_PASSWORD: string = 'Confirmar senha';
     USER_LOGIN_PLACEHOLDER: string = 'Digite seu usuário...';
     USER_LOGIN_BTN: string = 'Entrar';
+    USER_REGISTER: string = 'Cadastre-se';
     USER_PASSWORD_PLACEHOLDER: string = 'Digite sua senha...';
+    USER_CONFIRM_PASSWORD_PLACEHOLDER: string = 'Confirme sua senha...';
     ERROR_MESSAGE: string = 'Ocorreu um erro na requisição!';
     ERROR_TITLE: string = 'Erro';
     SUCCESS_MESSAGE: string = 'Operação realizada com sucesso!';

@@ -10,5 +10,6 @@ export interface MatchProps extends RouteComponentProps<Props> {
 
 export type State = {
     record: Book,
-    redirect: boolean
+    redirect: boolean,
+    redirectLogin: boolean
 }

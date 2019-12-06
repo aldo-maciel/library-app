@@ -1,4 +1,4 @@
-import { BookEvaluation } from '../../../server/src/app/book/book-evaluation/book-evaluation';
+import { BookEvaluation } from './book-evaluation/book-evaluation';
 
 export interface Book {
     _id: string;
@@ -12,4 +12,5 @@ export interface Book {
     };
     description: string,
     evaluation: BookEvaluation
+    evaluations: [BookEvaluation]
 }

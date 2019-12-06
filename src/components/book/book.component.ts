@@ -6,12 +6,20 @@ import { BookService } from './book.service';
 import { onError, onSuccess } from '../../shared/toastr-util';
 import { Pagination } from '../paginate/paginate.type';
 import { dictionary } from '../../shared/dictionary';
+import { userService } from '../user/user.service';
 
 export class BookComponent extends React.Component {
     private pagination!: Pagination;
     protected service: BookService = new BookService();
     protected totalRecords: number = 0;
-    public state = { rows: Array<Book>() };
+    public state = { rows: Array<Book>(), redirectLogin: false };
+
+    componentDidMount(): void {
+        if (!userService.isLogged() || !userService.getUser().admin) {
+            this.setState({ redirectLogin: true });
+            return;
+        }
+    }
 
     /**
      * Find all codes according to the filter

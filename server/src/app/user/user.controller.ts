@@ -1,32 +1,32 @@
 import { Request, Response } from 'express';
 import { userService } from './user.service';
-import httpStatusCode from 'http-status-codes';
+import handleError from '../../shared/error.service';
 
 export class UserController {
 
     async create(req: Request, res: Response) {
         try {
-            const { name, password, admin } = req.params;
-            await userService.create({ name, password, admin: admin === 'true' });
-            res.json({ success: true });
+            const { name, password, admin, login } = req.body;
+            const data: any = await userService.create({ name, password, admin, login, _id: '' });
+            delete data.password;
+            res.json(data);
         } catch (error) {
-            throw error;
+            handleError(res, error);
         }
 
     }
 
     async login(req: Request, res: Response) {
         try {
-            const { name, password } = req.params;
-            const user = await userService.find(name, password);
+            const { login, password } = req.query;
+            const user = await userService.find(login, password);
             if (user) {
                 res.json(user);
             } else {
-                res.status(httpStatusCode.BAD_REQUEST).json(null);
                 throw new Error('Usuário não encontrado!');
             }
         } catch (error) {
-            throw error;
+            handleError(res, error);
         }
     }
 

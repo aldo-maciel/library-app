@@ -6,6 +6,9 @@ export interface Props {
 }
 
 export type State = {
-    showModal: boolean
-    rating: number
+    showModal: boolean,
+    rating: number,
+    evaluations: number,
+    admin: boolean,
+    showEvaluations: boolean
 }

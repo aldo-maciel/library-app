@@ -1,8 +1,8 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import { User } from './user';
 
 class UserService {
-    private user!: User;
+    private user: User = {} as User;
 
     private static get URL() {
         if ('production' === process.env.NODE_ENV) {
@@ -15,26 +15,32 @@ class UserService {
      * Call server to create a new record
      * @param record
      */
-    create(record: User): Promise<AxiosResponse<{ success: boolean }>> {
-        return axios.post(UserService.URL, record);
+    async create(record: User) {
+        const { data } = await axios.post(UserService.URL, record);
+        if (!data) {
+            throw new Error();
+        }
+        this.user = data;
     }
 
-    async login(user: User): Promise<User> {
-        try {
-            if (this.user) {
-                return Object.assign({}, this.user);
-            }
-            const { data } = await axios.get(UserService.URL, { params: { user } });
-            this.user = data.user;
-            return Object.assign({}, data.user);
-        } catch (error) {
-            console.error(error);
-            throw error;
+    async login(params: User) {
+        const { data } = await axios.get(UserService.URL, { params });
+        if (!data) {
+            throw new Error();
         }
+        this.user = data;
+    }
+
+    logout() {
+        this.user = {} as User;
     }
 
     isLogged() {
-        return !!this.user;
+        return !!(this.user && this.user._id);
+    }
+
+    getUser() {
+        return Object.assign({}, this.user);
     }
 }
 

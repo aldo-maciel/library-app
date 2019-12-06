@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import moment from 'moment';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import * as serviceWorker from './service-worker';
-import { HeaderRender } from './components/header/header.render';
 import './index.scss';
 import 'moment/locale/pt-br';
 import { BookRender } from './components/book/book.render';
@@ -15,10 +14,9 @@ moment.locale('pt-br');
 
 ReactDOM.render(
     <BrowserRouter>
-        <HeaderRender />
         <Switch>
             <Route path="/" exact component={ LoginRender }/>
-            <Route path="/home" exact component={ HomePageRender }/>
+            <Route path="/home" component={ HomePageRender }/>
             <Route path="/livros/cadastrar" component={ BookRegisterRender }/>
             <Route path="/livros/:id" component={ BookRegisterRender }/>
             <Route path="/livros" component={ BookRender }/>

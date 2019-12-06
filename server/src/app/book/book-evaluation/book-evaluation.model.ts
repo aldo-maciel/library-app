@@ -22,7 +22,7 @@ schema.virtual('book', {
 });
 
 schema.virtual('user', {
-    ref: ModelEnum.BOOK,
+    ref: ModelEnum.USER,
     localField: 'userId',
     foreignField: '_id',
     justOne: true

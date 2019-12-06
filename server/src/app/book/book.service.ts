@@ -1,14 +1,19 @@
 import { bookModel } from './book.model';
 import logger from '../../shared/logger.service';
 import { Book } from './book';
+import { BookEvaluationService } from './book-evaluation/book-evaluation.service';
+import { userService } from '../user/user.service';
+import { log } from 'util';
 
 export class BookService {
+    private evaluationService: BookEvaluationService = new BookEvaluationService();
+
     /**
      * Get all records on database
      */
     public async findAll(pagination: any) {
         logger.debug(pagination);
-
+        const user = userService.getUser();
         const { text = '' } = JSON.parse(pagination.filter || '{}');
         const filter = { name: { $regex: text, $options: 'i' } };
         const data = await bookModel
@@ -16,13 +21,16 @@ export class BookService {
             .skip(parseInt(pagination.start))
             .limit(parseInt(pagination.step) || 10)
             .sort(pagination.sort || { createdAt: -1 })
-            .lean(true)
-            .populate('evaluation');
+            .lean(true);
 
         const count = await bookModel.countDocuments(filter);
 
-        logger.debug(count);
-
+        for (const book of data) {
+            book.evaluation = await this.evaluationService.findByBookId(book._id, user._id);
+            if (user.admin) {
+                book.evaluations = await this.evaluationService.findByBookIdAsAdmin(book._id);
+            }
+        }
         return { count, data };
     }
 

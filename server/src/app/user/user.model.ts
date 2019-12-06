@@ -6,6 +6,10 @@ const Schema = mongoose.Schema;
 const schema = new Schema({
     name: {
         type: String,
+        required: true
+    },
+    login: {
+        type: String,
         required: true,
         unique: true
     },

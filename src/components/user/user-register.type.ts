@@ -1,6 +1,12 @@
 import { User } from './user';
 
+export type Props = {
+    redirect(): void
+}
+
 export type State = {
     record: User,
-    redirect: boolean
+    redirect: boolean,
+    showModal: boolean,
+    errors: Object
 }
