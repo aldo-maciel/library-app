@@ -60,7 +60,7 @@ export class BookService {
             name: obj.name,
             author: obj.author,
             description: obj.description,
-            cover: obj.cover
+            cover: obj.cover || {}
         };
         await bookModel.create(rec);
     }

@@ -4,14 +4,17 @@ import { User } from './user';
 class UserService {
     private user: User = {} as User;
 
-    create(user: User) {
+    async create(user: User) {
         const { name, password, admin, login } = user;
-        return userModel.create({ name, password, admin, login });
+        await userModel.create({ name, password, admin, login });
+
+        return this.find(login, password);
     }
 
     async find(login: string, password: string) {
-        const _user = await userModel
-            .findOne({
+        delete this.user;
+        const users = await userModel
+            .find({
                 login,
                 password
             }, {
@@ -20,7 +23,7 @@ class UserService {
                 login: 1
             })
             .lean(true);
-
+        const _user = users.pop();
         if (_user) {
             this.user = _user;
         }
