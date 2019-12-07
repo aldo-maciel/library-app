@@ -36,8 +36,8 @@ export class BookRegisterRender extends BookRegisterComponent {
                                                onChange={ $event => this.onChangeName($event.target.value) }/>
                                     </div>
                                     <div className="col-lg-6 offset-lg-3 col-sm-12 offset-sm-0 form-group">
-                                        <label htmlFor="bookDescription" className=" col-form-label">{ dictionary.BOOK_AUTHOR }</label>
-                                        <input type="text" className="form-control" id="bookDescription"
+                                        <label htmlFor="bookAuthor" className=" col-form-label">{ dictionary.BOOK_AUTHOR }</label>
+                                        <input type="text" className="form-control" id="bookAuthor"
                                                placeholder={ dictionary.BOOK_PLACEHOLDER_AUTHOR } maxLength={ 40 }
                                                value={ this.state.record.author || '' }
                                                onChange={ $event => this.onChangeAuthor($event.target.value) }/>
@@ -50,7 +50,7 @@ export class BookRegisterRender extends BookRegisterComponent {
                                                   onChange={ $event => this.onChangeDescription($event.target.value) } rows={ 10 }/>
                                     </div>
                                     <div className="col-lg-6 offset-lg-3 col-sm-12 offset-sm-0 form-group">
-                                        <label htmlFor="bookDescription" className=" col-form-label">
+                                        <label htmlFor="bookCover" className=" col-form-label">
                                             { dictionary.BOOK_COVER }<small>(Max. 3mb)</small>
                                         </label>
                                         <div className="card" hidden={ !this.state.record.cover }>
