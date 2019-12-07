@@ -9,16 +9,9 @@ import { HeaderRender } from '../header/header.render';
 
 export class BookRender extends BookComponent {
 
-    private goToLogin() {
-        if (this.state.redirectLogin) {
-            return <Redirect to='/'/>;
-        }
-    };
-
     render(): React.ReactElement {
-        return (
+        return this.state.redirectLogin ? <Redirect to='/'/> : (
             <div>
-                { this.goToLogin() }
                 <HeaderRender/>
                 <div className="main-body book">
                     <div className="container-fluid">

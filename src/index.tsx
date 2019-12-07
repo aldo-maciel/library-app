@@ -20,6 +20,7 @@ ReactDOM.render(
             <Route path="/livros/cadastrar" component={ BookRegisterRender }/>
             <Route path="/livros/:id" component={ BookRegisterRender }/>
             <Route path="/livros" component={ BookRender }/>
+            <Route path="*" component={() => <h1 className="w100 min-vh-100 d-flex justify-content-center align-items-center">Page not found</h1>} />
         </Switch>
     </ BrowserRouter>, document.getElementById('root'));
 

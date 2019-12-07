@@ -2,7 +2,6 @@ import axios from 'axios';
 import { User } from './user';
 
 class UserService {
-    private user: User = {} as User;
 
     private static get URL() {
         if ('production' === process.env.NODE_ENV) {
@@ -20,7 +19,7 @@ class UserService {
         if (!data) {
             throw new Error();
         }
-        this.user = data;
+        localStorage.setItem('user', JSON.stringify(data));
     }
 
     async login(params: User) {
@@ -28,19 +27,19 @@ class UserService {
         if (!data) {
             throw new Error();
         }
-        this.user = data;
+        localStorage.setItem('user', JSON.stringify(data));
     }
 
     logout() {
-        this.user = {} as User;
+        localStorage.removeItem('user');
     }
 
     isLogged() {
-        return !!(this.user && this.user._id);
+        return !!localStorage.getItem('user');
     }
 
     getUser() {
-        return Object.assign({}, this.user);
+        return Object.assign({}, JSON.parse(localStorage.getItem('user') as string));
     }
 }
 

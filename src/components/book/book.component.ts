@@ -12,14 +12,7 @@ export class BookComponent extends React.Component {
     private pagination!: Pagination;
     protected service: BookService = new BookService();
     protected totalRecords: number = 0;
-    public state = { rows: Array<Book>(), redirectLogin: false };
-
-    componentDidMount(): void {
-        if (!userService.isLogged() || !userService.getUser().admin) {
-            this.setState({ redirectLogin: true });
-            return;
-        }
-    }
+    public state = { rows: Array<Book>(), redirectLogin: !userService.isLogged() || !userService.getUser().admin };
 
     /**
      * Find all codes according to the filter

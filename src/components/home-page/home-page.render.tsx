@@ -7,17 +7,10 @@ import { Redirect } from 'react-router-dom';
 
 export class HomePageRender extends HomePageComponent {
 
-    private goToLogin() {
-        if (this.state.redirectLogin) {
-            return <Redirect to='/'/>;
-        }
-    };
-
     render(): React.ReactElement {
-        return (
+        return this.state.redirectLogin ? <Redirect to="/"/> : (
             <div>
                 <HeaderRender/>
-                { this.goToLogin() }
                 <div className="main-body">
                     <div className="container-fluid">
                         <div className="home-page">

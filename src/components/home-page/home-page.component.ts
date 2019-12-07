@@ -3,20 +3,16 @@ import { BookService } from '../book/book.service';
 import { AxiosResponse } from 'axios';
 import { Book } from '../book/book';
 import { onError } from '../../shared/toastr-util';
-import { State } from './home-page.type';
 import { Pagination } from '../paginate/paginate.type';
 import { userService } from '../user/user.service';
+import { State } from './home-page.type';
 
 export class HomePageComponent extends React.Component<any, State> {
     protected service: BookService = new BookService();
     protected pagination: Pagination = { start: 0, step: 20, filter: '' };
-    public state = { rows: Array<Book>(), redirectLogin: false };
+    public state = { rows: Array<Book>(), redirectLogin: !userService.isLogged() };
 
     componentDidMount(): void {
-        if (!userService.isLogged()) {
-            this.setState({ redirectLogin: true });
-            return;
-        }
         this.find('');
     }
 

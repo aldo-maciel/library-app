@@ -15,18 +15,11 @@ export class BookRegisterRender extends BookRegisterComponent {
         }
     };
 
-    private goToLogin() {
-        if (this.state.redirectLogin) {
-            return <Redirect to='/'/>;
-        }
-    };
-
     render(): React.ReactElement {
-        return (
+        return this.state.redirectLogin ? <Redirect to='/'/> : (
             <div>
                 <HeaderRender/>
                 <div className="main-body book">
-                    { this.goToLogin() }
                     { this.goToGrid() }
                     <div className="container-fluid">
                         <form onSubmit={ $event => this.save($event) }

@@ -11,7 +11,7 @@ export class BookEvaluationRender extends BookEvaluationComponent {
         if (!this.state.admin) {
             return;
         }
-        return <Modal show={ this.state.showEvaluations } centered={ true } onHide={() => this.setState({ showEvaluations: false })}>
+        return <Modal show={ this.state.showEvaluations } centered={ true } onHide={ () => this.setState({ showEvaluations: false }) }>
             <Modal.Header className="bg-dark">
                 <div className="d-flex justify-content-between flex-grow-1 align-items-center">
                     <h3>{ dictionary.BOOK_EVALUATION }</h3>
@@ -77,7 +77,7 @@ export class BookEvaluationRender extends BookEvaluationComponent {
                     </Modal.Header>
                     <Modal.Body className="bg-dark">
                         <div className="d-flex justify-content-end">
-                            <button type="button" className="btn btn-link" hidden={ !this.state.admin }
+                            <button type="button" className="btn btn-link text-light" hidden={ !this.state.admin }
                                     onClick={ () => this.setState({ showEvaluations: true }) }>
                                 <h5 className="m-auto">
                                     <span className="badge badge-light font-weight-bolder">{ this.state.evaluations }</span>
