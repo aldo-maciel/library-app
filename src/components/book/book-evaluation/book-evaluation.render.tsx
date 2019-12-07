@@ -11,7 +11,7 @@ export class BookEvaluationRender extends BookEvaluationComponent {
         if (!this.state.admin) {
             return;
         }
-        return <Modal show={ this.state.showEvaluations } centered={ true }>
+        return <Modal show={ this.state.showEvaluations } centered={ true } onHide={() => this.setState({ showEvaluations: false })}>
             <Modal.Header className="bg-dark">
                 <div className="d-flex justify-content-between flex-grow-1 align-items-center">
                     <h3>{ dictionary.BOOK_EVALUATION }</h3>
@@ -27,7 +27,7 @@ export class BookEvaluationRender extends BookEvaluationComponent {
             </Modal.Header>
             <Modal.Body className="bg-dark">
                 { (this.props.book.evaluations || []).map(evaluation => {
-                    return <div className="row">
+                    return <div className="row" key={ evaluation._id }>
                         <div className="col-6">
                             { evaluation.user.name }
                         </div>
