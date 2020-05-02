@@ -16,10 +16,10 @@ export class BookColumnCreator {
     static getActionsIcons(row: Book, deleteRecord: Function = this.noop) {
         return <div className="d-inline-flex justify-content-around flex-wrap">
             <Link to={ `/livros/${ row._id }` } className="btn btn-link text-light" title={ dictionary.EDITAR_REGISTRO }>
-                <em className="fa fa-edit fa-2x"/>
+                <em className="eva eva-edit eva-2x"/>
             </Link>
             <button className="btn btn-link text-light" title={ dictionary.DELETAR_REGISTRO } onClick={ () => deleteRecord(row) }>
-                <em className="fa fa-trash-o fa-2x"/>
+                <em className="eva eva-trash eva-2x"/>
             </button>
         </div>;
     }
