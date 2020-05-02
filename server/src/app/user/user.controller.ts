@@ -22,7 +22,7 @@ export class UserController {
         try {
             const { login, password } = req.query as unknown as User;
             const user = await userService.find(login, password);
-            if (user) {
+            if (Object.keys(user).length) {
                 res.json(user);
             } else {
                 handleError(res, new Error(), httpStatusCodes.INTERNAL_SERVER_ERROR, 'Usuário não encontrado!');
