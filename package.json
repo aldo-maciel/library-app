@@ -6,7 +6,7 @@
     "scripts": {
         "build": "tsc",
         "dev": "ts-node src/server.ts",
-        "start": "npm run build && npm run start"
+        "start": "npm run build && nodemon"
     },
     "author": "Aldo Bernardes Maciel",
     "license": "MIT",
