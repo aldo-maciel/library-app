@@ -10,7 +10,7 @@ ENV PORT=80
 WORKDIR /opt/app/server
 COPY /server/*.json /opt/app/server/
 RUN npm install
-COPY /server/src /opt/app/server/src
+COPY /src /opt/app/server/src
 RUN npm run build
 
 # build view
@@ -19,8 +19,8 @@ COPY *.json /opt/app/view/
 RUN apk --no-cache add g++ gcc libgcc libstdc++ linux-headers make python
 RUN npm install --quiet node-gyp -g
 RUN npm install
-COPY src /opt/app/view/src
-COPY public /opt/app/view/public
+COPY view /opt/app/view/src
+COPY view /opt/app/view/public
 RUN npm run build
 
 # run

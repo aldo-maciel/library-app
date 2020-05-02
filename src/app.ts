@@ -21,7 +21,7 @@ class App {
         this.app.use(bodyParser.urlencoded({ extended: true, limit: properties.system.limit }));
         this.app.use(express.static('view'));
 
-        this.app.use(express.static(__dirname + '/../../build/'));
+        this.app.use(express.static(__dirname + '/../view/build/'));
 
         if (process.env.NODE_ENV === 'test') {
             await testDbUtils.mongoSetup();
