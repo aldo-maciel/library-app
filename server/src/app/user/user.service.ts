@@ -31,7 +31,7 @@ class UserService {
         return this.getUser();
     }
 
-    getUser() {
+    getUser(): User {
         return Object.assign({}, this.user);
     }
 }
