@@ -66,7 +66,7 @@ export class BookComponent extends React.Component {
         return Swal.fire({
             title: title,
             text: message,
-            type: 'warning',
+            icon: 'warning',
             showCancelButton: true,
             confirmButtonText: dictionary.SIM,
             cancelButtonText: dictionary.NAO
