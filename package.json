@@ -6,6 +6,7 @@
     "scripts": {
         "build": "tsc",
         "dev": "ts-node src/server.ts",
+        "prestart": "npm install",
         "start": "npm run build && node dist/server.js"
     },
     "author": "Aldo Bernardes Maciel",
