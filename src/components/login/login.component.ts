@@ -14,7 +14,8 @@ export class LoginComponent extends React.Component<any, State> {
             this.setState({ redirect: true });
         } catch (error) {
             this.setState({ error: true });
-            onError(error);
+            const { response } = error;
+            onError(error, response.data);
         }
     }
 
