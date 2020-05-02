@@ -22,19 +22,19 @@ export class PaginateRender extends PaginateComponent {
             <div>
                 <button disabled={ this.pagination.start < this.props.step } onClick={ () => this.paginate(0) }
                         className="btn btn-link" title={ dictionary.PAGINATE_PRIMEIRA }>
-                    <em className="fa fa-angle-double-left fa-2x"/>
+                    <em className="eva eva-arrowhead-left eva-2x"/>
                 </button>
                 <button disabled={ this.pagination.start < this.props.step } onClick={ () => this.paginate(2) }
                         className="btn btn-link" title={ dictionary.PAGINATE_ANTERIOR }>
-                    <em className="fa fa-angle-left fa-2x"/>
+                    <em className="eva eva-chevron-left eva-3x"/>
                 </button>
                 <button disabled={ this.props.totalRecords <= (this.props.step + this.pagination.start) } onClick={ () => this.paginate(1) }
                         className="btn btn-link" title={ dictionary.PAGINATE_PROXIMA }>
-                    <em className="fa fa-angle-right fa-2x"/>
+                    <em className="eva eva-chevron-right-outline eva-3x"/>
                 </button>
                 <button disabled={ this.props.totalRecords <= (this.props.step + this.pagination.start) } onClick={ () => this.paginate(3) }
                         className="btn btn-link" title={ dictionary.PAGINATE_ULTIMA }>
-                    <em className="fa fa-angle-double-right fa-2x"/>
+                    <em className="eva eva-arrowhead-right eva-2x"/>
                 </button>
             </div>
         </div>;
