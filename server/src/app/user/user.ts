@@ -1,7 +1,7 @@
 export interface User {
-    _id: string;
+    readonly _id: string;
     name: string;
     password: string;
-    admin: boolean;
+    admin?: boolean;
     login: string;
 }
