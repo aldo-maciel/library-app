@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
+import httpStatusCodes from 'http-status-codes';
 import { userService } from './user.service';
 import handleError from '../../shared/error.service';
+import { User } from './user';
 
 export class UserController {
 
@@ -18,12 +20,12 @@ export class UserController {
 
     async login(req: Request, res: Response) {
         try {
-            const { login, password } = req.query;
+            const { login, password } = req.query as unknown as User;
             const user = await userService.find(login, password);
             if (user) {
                 res.json(user);
             } else {
-                throw new Error('Usuário não encontrado!');
+                handleError(res, new Error(), httpStatusCodes.INTERNAL_SERVER_ERROR, 'Usuário não encontrado!');
             }
         } catch (error) {
             handleError(res, error);
