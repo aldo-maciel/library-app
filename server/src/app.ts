@@ -4,6 +4,7 @@ import cors from 'cors';
 import { RoutesMiddleware } from './config/app.config';
 import { MongoConfig } from './config/mongo.config';
 import { properties } from './properties';
+import { testDbUtils } from './config/mongo-test.config';
 
 class App {
     public app: Application = express();
@@ -20,7 +21,13 @@ class App {
         this.app.use(bodyParser.urlencoded({ extended: true, limit: properties.system.limit }));
         this.app.use(express.static('view'));
 
-        await new MongoConfig().mongoSetup();
+        this.app.use(express.static(__dirname + '/../../build/'));
+
+        if (process.env.NODE_ENV === 'test') {
+            await testDbUtils.mongoSetup();
+        } else {
+            await new MongoConfig().mongoSetup();
+        }
         new RoutesMiddleware().config(this.app);
     }
 }
