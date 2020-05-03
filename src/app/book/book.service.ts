@@ -3,7 +3,7 @@ import logger from '../../shared/logger.service';
 import { Book } from './book';
 import { BookEvaluationService } from './book-evaluation/book-evaluation.service';
 import { userService } from '../user/user.service';
-import { log } from 'util';
+import { BookEvaluation } from './book-evaluation/book-evaluation';
 
 export class BookService {
     private evaluationService: BookEvaluationService = new BookEvaluationService();
@@ -29,6 +29,11 @@ export class BookService {
             book.evaluation = await this.evaluationService.findByBookId(book._id, user._id);
             if (user.admin) {
                 book.evaluations = await this.evaluationService.findByBookIdAsAdmin(book._id);
+                book.evaluations.forEach((evaluation: BookEvaluation) => {
+                    if (!evaluation.user) {
+                        evaluation.user = {};
+                    }
+                });
             }
         }
         return { count, data };
