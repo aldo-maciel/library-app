@@ -27,7 +27,7 @@
         "@types/react-dom": "16.9.7",
         "@types/react-router-dom": "^5.1.5",
         "@types/toastr": "^2.1.37",
-        "node-sass": "4.13.1",
+        "node-sass": "7.0.0",
         "typescript": "3.8.3"
     },
     "scripts": {
